@@ -1,5 +1,7 @@
 <h3>Angular 2 Forms</h3>
-<form>
-    <input type="text" placeholder="Name">
+<form #form="ngForm">
+    <input type="text" placeholder="Name" name="name" ngModel>
     <button type="submit">Ok</button>
 </form>
+
+{{ form.pristine }}
