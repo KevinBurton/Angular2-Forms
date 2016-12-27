@@ -6,14 +6,13 @@
             <label class="control-label">First Name</label>
             <!-- minlength is not supported on all browsers but pattern is checkout caniuse.com -->
             <!-- maxlength seems to be supported on most browsers -->
-            <input #firstName="ngModel" pattern="...+" type="text" class="form-control" 
+            <input #firstName="ngModel" pattern="...+" required type="text" class="form-control" 
                    name="firstName" [(ngModel)]="model.firstName">
             <div *ngIf="firstName.invalid && firstName.touched" class="alert alert-danger">
-                First Name is required
+                First Name is required and must have a minimum length of 3 characters
             </div>
         </div>
 
-        <h4>{{ firstName.dirty }}</h4>
 <!--        
         <div class="form-group">
             <label>Last Name</label>
@@ -59,6 +58,7 @@
             </select>
         </div>
 
-      <button class="btn btn-primary" type="submit">Ok</button>
+      <button [disabled]="form.invalid" class="btn btn-primary" type="submit">Ok</button>
+
     </form>
 </div>
