@@ -1,23 +1,24 @@
 
-<div class="container">
+<div class="container" *ngIf="languages.length > 0">
     <h3>Employee Form</h3>
-    <form #form="ngForm" novalidate>
+    <form #form="ngForm" (submit)="submitForm(form)" novalidate>
         <div class="form-group" [class.has-error]="firstName.invalid && firstName.touched">
             <label class="control-label">First Name</label>
             <!-- minlength is not supported on all browsers but pattern is checkout caniuse.com -->
             <!-- maxlength seems to be supported on most browsers -->
-            <input #firstName="ngModel" pattern="...+" required type="text" class="form-control" 
+            <input #firstName="ngModel" type="text" class="form-control" required
                    name="firstName" [(ngModel)]="model.firstName">
             <div *ngIf="firstName.invalid && firstName.touched" class="alert alert-danger">
-                First Name is required and must have a minimum length of 3 characters
+                First Name is required
             </div>
-        </div>
-
-<!--        
+        </div>         
         <div class="form-group">
             <label>Last Name</label>
-            <input type="text" class="form-control" required placeholder="Last Name" 
+            <input #lastName="ngModel" type="text" class="form-control" required
                    name="lastName" [(ngModel)]="model.lastName">
+            <div *ngIf="lastName.invalid && lastName.touched" class="alert alert-danger">
+                Last Name is required
+            </div>
         </div>
 
         <div class="checkbox">
@@ -42,7 +43,6 @@
                 1099
             </label>
         </div>
--->
         <div class="form-group" [class.has-error]="hasPrimaryLanguageError">
             <label class="control-label">Primary Language</label>
             <select class="form-control"
@@ -57,7 +57,7 @@
                 </option>
             </select>
         </div>
-
+       <!-- [disabled] if the desire is to disable the submit -->
       <button [disabled]="form.invalid" class="btn btn-primary" type="submit">Ok</button>
 
     </form>
