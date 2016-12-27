@@ -9,6 +9,8 @@ import { FormPoster } from '../services/form-poster.service';
   templateUrl: './home.component.html'
 })
 export class HomeComponent {
+  startTime: Date;
+  startDate: Date;
   languages = [];
   model = new Employee('', '', false, '', 'default');
   hasPrimaryLanguageError = false;

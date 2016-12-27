@@ -57,6 +57,21 @@
                 </option>
             </select>
         </div>
+        <!--
+            Use property binding to this third-party library
+            String literals need to be represented as "'month'"
+        -->
+        <div class="form-group" style="display: inline-block;">
+            <datepicker name="startDate" [(ngModel)]="startDate"
+                        [showWeeks]="false"></datepicker>
+        </div>
+        <h3>{{ startDate }}</h3>
+
+        <div class="form-group" style="display: inline-block;">
+            <timepicker name="startTime" [(ngModel)]="startTime"></timepicker>
+        </div>
+        <h3>{{ startDate }}</h3>
+
        <!-- [disabled] if the desire is to disable the submit -->
       <button [disabled]="form.invalid" class="btn btn-primary" type="submit">Ok</button>
 
