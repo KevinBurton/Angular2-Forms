@@ -19,6 +19,8 @@ import { FormPoster } from './services/form-poster.service';
 
 import { DatepickerModule } from 'ng2-bootstrap/datepicker';
 import { TimepickerModule } from 'ng2-bootstrap/timepicker';
+import { ButtonsModule } from 'ng2-bootstrap/buttons';
+import { RatingModule } from 'ng2-bootstrap/rating';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { TimepickerModule } from 'ng2-bootstrap/timepicker';
     ContactComponent
   ],
   imports: [
+    RatingModule.forRoot(),
+    ButtonsModule.forRoot(),
     TimepickerModule.forRoot(),
     DatepickerModule.forRoot(),
     BrowserModule,

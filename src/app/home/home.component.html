@@ -70,9 +70,51 @@
         <div class="form-group" style="display: inline-block;">
             <timepicker name="startTime" [(ngModel)]="startTime"></timepicker>
         </div>
-        <h3>{{ startDate }}</h3>
-
-       <!-- [disabled] if the desire is to disable the submit -->
+        <h3>{{ startTime }}</h3>
+        <div class="form-group">
+            <button type="button" class="btn"
+                    [class.btn-primary]="onOffSwitch === 'On'"
+                    name="onOffSwitch"
+                    [(ngModel)]="onOffSwitch" btnCheckbox
+                    btnCheckboxTrue="On" btnCheckboxFalse="Off">
+            {{ onOffSwitch }}
+            </button>
+        </div>
+        <h3>{{ onOffSwitch }}</h3>
+        <div class="btn-group">
+            <label class="btn btn-primary" 
+                name="taxType"
+                [(ngModel)]="taxType"
+                btnRadio="W2">
+                    W2
+            </label>
+            <label class="btn btn-primary" 
+                name="taxType"
+                [(ngModel)]="taxType"
+                btnRadio="1099">
+                    1099
+            </label>
+            <label class="btn btn-primary" 
+                name="taxType"
+                [(ngModel)]="taxType"
+                btnRadio="Other">
+                    Other Tax Type
+            </label>
+        </div>
+        <br>
+        <h3>{{ taxType }}</h3>
+        <div class="form-group">
+            <rating name="postRating"
+                    [max]="10"
+                    [stateOn]="'glyphicon-check'"
+                    [stateOff]="'glyphicon-unchecked'"
+                    (onHover)="hover($event)"
+                    (onLeave)="leave($event)"
+                    [(ngModel)]="postRating">
+            </rating>
+        </div>
+        <h3>{{ postRating }}</h3>
+      <!-- [disabled] if the desire is to disable the submit -->
       <button [disabled]="form.invalid" class="btn btn-primary" type="submit">Ok</button>
 
     </form>

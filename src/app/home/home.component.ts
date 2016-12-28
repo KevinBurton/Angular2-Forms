@@ -11,6 +11,9 @@ import { FormPoster } from '../services/form-poster.service';
 export class HomeComponent {
   startTime: Date;
   startDate: Date;
+  onOffSwitch = "Off";
+  taxType="W2";
+  postRating: Number;
   languages = [];
   model = new Employee('', '', false, '', 'default');
   hasPrimaryLanguageError = false;
@@ -38,5 +41,11 @@ export class HomeComponent {
                        data => console.log('success: ', data),
                        err => console.log('error: ', err)
                      )
+  }
+  hover(event) {
+    console.log("hover: " + event)
+  }
+  leave(event) {
+    console.log("leave: " + event)
   }
 }
